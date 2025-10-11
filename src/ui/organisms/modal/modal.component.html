@@ -1,0 +1,39 @@
+@let slots = $slots() | asRecord;
+
+<!-- Modal toggle -->
+
+<!-- Main modal -->
+<div class="relative max-h-full w-full max-w-2xl p-4">
+  <!-- Modal content -->
+  <div class="relative rounded-3xl bg-transparent shadow-sm dark:bg-gray-700">
+    <!-- Modal header -->
+
+    <div class="flex items-center justify-between rounded-t border-b border-gray-200 p-4 dark:border-gray-600 md:p-5">
+      @if (slots['header']; as header) {
+      <ng-container [ngTemplateOutlet]="header" />
+      }
+      <button
+        type="button"
+        (click)="emitClose()"
+        class="text-primary ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white">
+        <app-icon> close </app-icon>
+        <span class="sr-only">Close modal</span>
+      </button>
+    </div>
+
+    <app-divider />
+
+    <!-- Modal body -->
+    <div class="space-y-4 p-4 md:p-5">
+      <ng-content />
+    </div>
+    <!-- Modal footer -->
+
+    @if ( slots['footer']; as footer) {
+    <app-divider />
+    <div class="flex items-center rounded-b border-t border-gray-200 p-4 dark:border-gray-600 md:p-5">
+      <ng-container [ngTemplateOutlet]="footer" />
+    </div>
+    }
+  </div>
+</div>

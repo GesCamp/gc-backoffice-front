@@ -1,0 +1,34 @@
+@if (true) { @let pagination = $pagination();
+
+<div class="container grid w-full grid-cols-6 gap-4 pt-5">
+  <div class="text-start col-span-3 content-around">
+    <span>{{ fromItem }}–{{ toItem }} de {{ $pagination().totalItems }}</span>
+  </div>
+  <div class="text-end col-span-3 content-around">
+    <div class="inline-flex items-center gap-1">
+      <!-- Aquí puedes generar los botones de paginación según totalPages -->
+      <!-- Solo botones de ejemplo -->
+      <button
+        class="bg-background inline-flex h-7 w-7 cursor-pointer rounded-md text-sm"
+        [disabled]="pagination.page === 1"
+        (click)="previousPage()">
+        <app-icon>arrow_left</app-icon>
+      </button>
+      @for (pageNum of pages; track pageNum) {
+      <button
+        class="inline-flex h-7 w-7 cursor-pointer items-center justify-center rounded-md text-sm"
+        [class.bg-gray-300]="pageNum === pagination.page"
+        (click)="goToPage(pageNum)">
+        <div class="text-primary text-center">{{ pageNum }}</div>
+      </button>
+      }
+      <button
+        class="inline-flex h-7 w-7 cursor-pointer rounded-md text-sm"
+        [disabled]="pagination.page === pagination.totalPages"
+        (click)="nextPage()">
+        <app-icon>arrow_right</app-icon>
+      </button>
+    </div>
+  </div>
+</div>
+}

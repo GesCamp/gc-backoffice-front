@@ -1,0 +1,52 @@
+<app-table>
+  <ng-template app-slot="filters">
+    <app-filters-table-module
+      (searchCodeChange)="onSearchCodeChange($event)"
+      (searchNameChange)="onSearchNameChange($event)" />
+  </ng-template>
+  <ng-template app-slot="head">
+    <tr>
+      @for ( item of headerData; track $index) {
+      <th class="h-8 w-[25%] text-center">{{ item }}</th>
+      }
+    </tr>
+  </ng-template>
+  @if(!isLoading()){ @for (item of $getAllModulesDetail(); track $index) {
+  <tr class="hover:bg-card/50 h-10">
+    <td class="text-center">
+      {{ item.id }}
+    </td>
+    <td>
+      {{ item.code }}
+    </td>
+    <td>
+      {{ item.name }}
+    </td>
+    <td class="text-center">
+      <div class="flex items-center justify-end gap-2">
+        <app-button size="small" icon="edit_document" (click)="updateModule(item)"></app-button>
+        <app-button size="small" icon="delete" tone="danger" (click)="hola()"></app-button>
+      </div>
+    </td>
+  </tr>
+  } @empty {
+  <tr>
+    <td class="py-4 text-center text-sm" colspan="7">
+      No hay data
+      <app-button full impact="none" tone="primary" shape="rounded" size="medium" (buttonClick)="this.retry()">
+        <app-icon class="h-6 w-7"> refresh </app-icon>
+      </app-button>
+    </td>
+  </tr>
+  } }@if(isLoading()){
+  <tr>
+    <td colspan="4" class="py-4 px-2">
+      <app-progress-bar />
+    </td>
+  </tr>
+  }
+
+  <ng-template app-slot="footer">
+    <app-pagination-table [pagination]="$pagination()" (pageChange)="onChangePage($event)" />
+  </ng-template>
+</app-table>

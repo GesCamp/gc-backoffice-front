@@ -1,0 +1,37 @@
+<app-header-dashboard title="Módulos" subtitle="Aquí, puedes gestionar los módulos para administrar los permisos.">
+  <app-button
+    full
+    impact="none"
+    tone="primary"
+    shape="rounded"
+    size="medium"
+    (buttonClick)="this.retry()"
+    retryData="retry()">
+    <app-icon class="h-6 w-7"> refresh </app-icon>
+  </app-button>
+  <app-button full impact="bold" tone="primary" shape="rounded" size="medium" (buttonClick)="createNewModule()">
+    <app-icon class="h-6 w-7"> add </app-icon>
+    Crear módulo
+  </app-button>
+</app-header-dashboard>
+
+@let isLoading = $getAllModulesService.$isLoading(); @let modulesDetail = $getAllModulesService.$modules();
+@if(modulesDetail || isLoading) {
+<app-modules-table
+  [isLoading]="isLoading"
+  [getAllModulesDetail]="modulesDetail?.data ?? []"
+  [pagination]="
+    modulesDetail?.pagination ??
+    {
+      page: 1,
+      perPage: 10,
+      totalItems: 0,
+      totalPages: 0
+    }
+  "
+  (pageChange)="onPageChange($event)"
+  [searchCode]="currentSearchCode"
+  [searchName]="currentSearchName"
+  (filtersChanged)="onFiltersChange($event)"
+  (retryData)="retry()" />
+}

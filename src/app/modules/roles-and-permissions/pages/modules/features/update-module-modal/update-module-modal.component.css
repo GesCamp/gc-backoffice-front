@@ -1,0 +1,9 @@
+.close-button{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+}
