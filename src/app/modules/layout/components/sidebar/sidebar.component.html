@@ -5,7 +5,9 @@
     <!-- Logo -->
     <div
       class="mx-4 mb-2 flex h-9 items-center"
-      [ngClass]="menuService.showSideBar ? 'justify-between' : 'justify-center'">
+      [ngClass]="
+        menuService.showSideBar ? 'justify-between' : 'justify-center'
+      ">
       @if (menuService.showSideBar) {
       <div class="flex items-center">
         <a
@@ -38,12 +40,15 @@
   <div class="mx-4 my-4 space-y-1">
     <a
       target="_blank"
-      href="https://github.com/OmarOlate/angular-19-tailwind-backoffice-base-project"
+      href="https://github.com/GesCamp/gc-backoffice-front"
       class="-sm hover:bg-card group flex h-9 cursor-pointer items-center justify-start p-2">
       <app-icon class="text-muted-foreground/50 h-5 w-5">info</app-icon>
 
-      <div class="ml-3 truncate text-[10px] font-semibold tracking-wide focus:outline-hidden">
-        <span class="bg-primary/10 text-primary px-2 font-semibold"> v{{ appJson.version }} </span>
+      <div
+        class="ml-3 truncate text-[10px] font-semibold tracking-wide focus:outline-hidden">
+        <span class="bg-primary/10 text-primary px-2 font-semibold">
+          v{{ appJson.version }}
+        </span>
       </div>
 
       @if (!menuService.showSideBar) {

@@ -1,4 +1,4 @@
-# angular-19-tailwind-backoffice-base-project
+# gc-backoffice-front
 Backoffice bas project for start new project
 <p align="center">
     <img src="src/assets/preview/logo.png" width="150">
@@ -39,9 +39,6 @@ For me, the best strategy for learning new skills is to practice. I have created
 - [x] Multi Theme
 - [x] Tests E2E
 - [x] RTL support
-- [ ] Guards
-- [ ] Animations
-- [ ] Jasmine tests
 
 #### Commands
 

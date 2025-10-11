@@ -1,12 +1,12 @@
 {
-  "name": "angular-19-tailwind-backoffice-base-project",
+  "name": "gc-backoffice-front",
   "displayName": "project for start",
   "version": "0.10.1",
   "description": "Angular & Tailwind CSS Admin Dashboard Starter Kit, Free and Open Source",
-  "homepage": "https://github.com/OmarOlate/angular-19-tailwind-backoffice-base-project?#readme",
+  "homepage": "https://github.com/GesCamp/gc-backoffice-front?#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OmarOlate/angular-19-tailwind-backoffice-base-project.git"
+    "url": "git+https://github.com/GesCamp/gc-backoffice-front.git"
   },
   "keywords": [
     "angular",
