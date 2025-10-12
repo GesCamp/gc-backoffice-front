@@ -1,4 +1,3 @@
-export type CreateModuleDto = Readonly<{
-  code: string;
-  name: string;
-}>;
+import { ModuleDto } from './module.dto';
+
+export type CreateModuleDto = Readonly<Pick<ModuleDto, 'code' | 'name'>>;

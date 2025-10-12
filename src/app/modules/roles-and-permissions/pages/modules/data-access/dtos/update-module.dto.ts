@@ -1,4 +1,7 @@
-export type UpdateModuleDto = Readonly<{
-  id: number;
-  newName: string;
-}>;
+import { ModuleDto } from './module.dto';
+
+export type UpdateModuleDto = Readonly<
+  Pick<ModuleDto, 'id'> & {
+    newName: string;
+  }
+>;

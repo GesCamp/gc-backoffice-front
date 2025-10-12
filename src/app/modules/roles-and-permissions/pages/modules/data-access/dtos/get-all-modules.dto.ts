@@ -1,5 +1,3 @@
-export type GetAllModulesDto = Readonly<{
-  id: number;
-  code: string;
-  name: string;
-}>;
+import { ModuleDto } from './module.dto';
+
+export type GetAllModulesDto = ModuleDto;
