@@ -1,5 +1,10 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { booleanAttribute, Component, contentChildren, input } from '@angular/core';
+import {
+  booleanAttribute,
+  Component,
+  contentChildren,
+  input,
+} from '@angular/core';
 import { DividerComponent } from 'src/ui/atoms';
 import { SLOT, SlotAsRecordPipe } from 'src/ui/utils';
 

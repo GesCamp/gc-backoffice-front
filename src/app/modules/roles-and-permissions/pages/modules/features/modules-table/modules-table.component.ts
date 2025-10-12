@@ -13,6 +13,7 @@ import { CreateNewModelModalComponent } from '../create-new-model-modal/create-n
 import { FiltersTableModuleComponent } from '../../ui';
 import { PaginationMeta } from 'src/app/core/standarized-response/standardized-pagination/pagination-meta.dto';
 import { UpdateModuleModalComponent } from '../update-module-modal/update-module-modal.component';
+import { DeleteModuleModalComponent } from '../delete-module-modal/delete-module-modal.component';
 
 @Component({
   selector: 'app-modules-table',
@@ -42,7 +43,9 @@ export class ModulesTableComponent {
   @Output() filtersChanged = new EventEmitter<{ code: string; name: string }>();
   @Output() retryData = new EventEmitter<void>();
 
-  readonly $pagination = input.required<PaginationMeta>({ alias: 'pagination' });
+  readonly $pagination = input.required<PaginationMeta>({
+    alias: 'pagination',
+  });
   headerData = ['Id', 'Código', 'Nombre', 'Acción'];
 
   viewDetailModule() {
@@ -54,6 +57,12 @@ export class ModulesTableComponent {
 
   updateModule(item: any) {
     this.dialog.open(UpdateModuleModalComponent, {
+      width: '90%',
+      data: item,
+    });
+  }
+  deleteModule(item: any) {
+    this.dialog.open(DeleteModuleModalComponent, {
       width: '90%',
       data: item,
     });
