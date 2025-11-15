@@ -1,0 +1,14 @@
+[build]
+command = "npm run build -- --configuration production"
+publish = "dist/main/browser"
+
+[build.environment]
+NODE_VERSION = "22"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+[build.processing.html]
+pretty_urls = true
