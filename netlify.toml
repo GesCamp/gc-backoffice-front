@@ -2,7 +2,7 @@
 command = "npm run build"
 publish = "dist/main/browser"
 
-[context.main]
+[context.production]
 command = "npm run build -- --configuration production"
 
 [context.develop]
