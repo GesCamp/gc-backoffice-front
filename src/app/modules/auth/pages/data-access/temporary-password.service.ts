@@ -4,7 +4,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { BehaviorSubject, catchError, delay, finalize, map, Observable, Subject, tap, throwError } from 'rxjs';
 import { TemporaryPasswordDto, TemporaryPasswordResponseDto } from '../dtos';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { ApiPathEnum } from 'src/environments';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +23,7 @@ export class TemporaryPasswordService {
     this.#isLoading$.next(true);
 
     return this.httpClient
-      .post<TemporaryPasswordResponseDto>(`${environment.baseUrl}/login/new-password-validate`, input)
+      .post<TemporaryPasswordResponseDto>(`${ApiPathEnum.AUTH}/login/new-password-validate`, input)
       .pipe(
         tap(() => this.#isLoading$.next(true)),
         tap(() => this.#error$.next(undefined)),
