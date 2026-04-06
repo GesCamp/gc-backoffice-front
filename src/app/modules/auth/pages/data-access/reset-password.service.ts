@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { BehaviorSubject, catchError, finalize, map, Observable, Subject, tap, throwError } from 'rxjs';
 import { ResetPaswordInputDto, TemporaryPasswordResponseDto } from '../dtos';
-import { environment } from 'src/environments/environment';
+import { ApiPathEnum } from 'src/environments';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +23,7 @@ export class ResetPasswordService {
     this.#isLoading$.next(true);
 
     return this.httpClient
-      .put<TemporaryPasswordResponseDto>(`${environment.baseUrl}/login/reset-password`, {
+      .put<TemporaryPasswordResponseDto>(`${ApiPathEnum.AUTH}/login/reset-password`, {
         email: input.email,
         currentPassword: input.currentPassword,
         newPassword: input.newPassword,
