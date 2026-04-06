@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, finalize, map, Observable, Subject, tap, throwError } from 'rxjs';
 import { LoginInputDto, LoginOutputDto, UserDataDto } from '../dtos';
 import { HttpClient, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { ApiPathEnum } from 'src/environments';
 
 @Injectable({
   providedIn: 'root',
@@ -74,7 +74,7 @@ export class AuthService {
     this.#isLoading$.next(true);
 
     return this.http
-      .post<{ token: string; userData: UserDataDto }>(`${environment.baseUrl}/login/authenticate-user`, {
+      .post<{ token: string; userData: UserDataDto }>(`${ApiPathEnum.AUTH}/login/authenticate-user`, {
         email: loginInput.email,
         password: loginInput.password,
       })
